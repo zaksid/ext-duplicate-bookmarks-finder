@@ -1,0 +1,46 @@
+<div class="mdc-card mdc-card--outlined bookmark-card-content">
+    <div class="mdc-card-wrapper__text-section">
+        <div class="bookmark-card__title"><strong>{{url}}</strong></div>
+        <div class="bookmark-card__subhead">{{i18n.txt_cardMatchNo}}</div>
+    </div>
+    <div class="mdc-card-wrapper__text-section">
+        <div class="bookmark-card__supporting-text">
+            <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
+            {{#items}}
+                <li role="separator" class="mdc-list-divider"></li>
+                <li class="mdc-list-item duplicate-li" role="checkbox" aria-checked="false">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__graphic">
+                        <div class="mdc-checkbox">
+                            <input
+                                type="checkbox"
+                                class="mdc-checkbox__native-control duplicate-checkbox"
+                                id="duplicate-{{id}}"
+                                name="duplicate"
+                                value="{{id}}"
+                            />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+
+                    <span class="mdc-list-item__text">
+                        <span class="mdc-list-item__primary-text">
+                            <label class="mdc-list-item__text" for="duplicate-{{id}}">{{title}}</label>
+                            (<a href="{{url}}">{{url}}</a>)
+                        </span>
+                        <span class="mdc-list-item__secondary-text">
+                            <strong>{{i18n.txt_path}}</strong>
+                            {{myPath}}
+                        </span>
+                    </span>
+                </li>
+            {{/items}}
+            </ul>
+        </div>
+    </div>
+</div>

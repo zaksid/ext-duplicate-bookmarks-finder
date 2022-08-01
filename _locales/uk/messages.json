@@ -1,0 +1,67 @@
+{
+    "extensionName": {
+        "message": "Пошук дублікатів закладок",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Пошук і видалення дублікатів закладок.",
+        "description": "Description of the extension."
+    },
+    "btn_findDuplicates": {
+        "message": "Пошук"
+    },
+    "btn_cancel": {
+        "message": "Скасувати"
+    },
+    "btn_delete": {
+        "message": "Видалити"
+    },
+    "btn_deleteSelected": {
+        "message": "Видалити вибрані"
+    },
+    "bookmarksDeleteConfirmationTitle": {
+        "message": "Видалити вибрані закладки?"
+    },
+    "bookmarksDeleteConfirmation": {
+        "message": "Цю дію не можна відмінити!"
+    },
+    "bookmarksDeletedMsg": {
+        "message": "Вибрані закладки було видалено."
+    },
+    "input_hint_ignoredUrlRegex": {
+        "message": "Регулярка для ігнорування закладок"
+    },
+    "menu_about": {
+        "message": "Про розширення"
+    },
+    "msgFoundQty": {
+        "message": "Знайдено дублікатів: $QTY$",
+        "placeholders": {
+            "qty": {
+                "content": "$1",
+                "example": "0"
+            }
+        }
+    },
+    "msgFoundNone": {
+        "message": "🥳 Дублікатів не знайдено!"
+    },
+    "txt_cardMatchNo": {
+        "message": "Співпадіння $NO$",
+        "placeholders": {
+            "no": {
+                "content": "$1",
+                "example": "1"
+            }
+        }
+    },
+    "alt_extIcon": {
+        "message": "Іконка розширення"
+    },
+    "txt_path": {
+        "message": "Шлях:"
+    },
+    "txt_version": {
+        "message": "Версія:"
+    }
+}

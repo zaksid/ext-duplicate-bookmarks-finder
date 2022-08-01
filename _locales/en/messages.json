@@ -1,0 +1,67 @@
+{
+    "extensionName": {
+        "message": "Duplicate Bookmarks Finder",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Find and delete duplicate bookmarks.",
+        "description": "Description of the extension."
+    },
+    "btn_findDuplicates": {
+        "message": "Find"
+    },
+    "btn_cancel": {
+        "message": "Cancel"
+    },
+    "btn_delete": {
+        "message": "Delete"
+    },
+    "btn_deleteSelected": {
+        "message": "Delete selected"
+    },
+    "bookmarksDeleteConfirmationTitle": {
+        "message": "Delete selected bookmarks?"
+    },
+    "bookmarksDeleteConfirmation": {
+        "message": "This action cannot be undone!"
+    },
+    "bookmarksDeletedMsg": {
+        "message": "Selected bookmarks have been deleted."
+    },
+    "input_hint_ignoredUrlRegex": {
+        "message": "Ignored URLs regex"
+    },
+    "menu_about": {
+        "message": "About"
+    },
+    "msgFoundQty": {
+        "message": "Found $QTY$ duplicates",
+        "placeholders": {
+            "qty": {
+                "content": "$1",
+                "example": "0"
+            }
+        }
+    },
+    "msgFoundNone": {
+        "message": "🥳 No duplicates found!"
+    },
+    "txt_cardMatchNo": {
+        "message": "Match $NO$",
+        "placeholders": {
+            "no": {
+                "content": "$1",
+                "example": "1"
+            }
+        }
+    },
+    "alt_extIcon": {
+        "message": "Extension icon"
+    },
+    "txt_path": {
+        "message": "Path"
+    },
+    "txt_version": {
+        "message": "Version: "
+    }
+}

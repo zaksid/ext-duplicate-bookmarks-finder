@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Material styles -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+
+    <!-- Material JS -->
+    <script src="lib/material-components-web@14.0.0.min.js"></script>
+
+    <!-- Material Icons from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- Mustache -->
+    <script src="lib/mustache.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu" id="app-bar-nav-btn">
+                <span class="app_icon-icon_bw"></span>
+            </button>
+
+            <span class="mdc-top-app-bar__title" id="app-bar-title">Duplicate bookmarks finder</span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options" id="app-bar-menu-btn">more_vert</button>
+
+            <!-- Menu with wrapper -->
+            <div class="mdc-menu-surface--anchor">
+                <div class="mdc-menu mdc-menu-surface">
+                    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                        <li class="mdc-list-item menu-li" role="menuitem" id="menuitem-about">
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text">About</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</header>
+
+<main class="mdc-top-app-bar--fixed-adjust" id="main-content">
+    <!-- Mustache template with the main content will be rendered here -->
+</main>
+
+<script src="js/popup.js"></script>
+
+</body>
+</html>

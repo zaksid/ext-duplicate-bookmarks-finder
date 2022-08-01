@@ -1,0 +1,152 @@
+/* Icons font */
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?46olml");
+  src: url("../fonts/icomoon.eot?46olml#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?46olml") format("truetype"),
+    url("../fonts/icomoon.woff?46olml") format("woff"),
+    url("../fonts/icomoon.svg?46olml#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.app_icon-icon_bw {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: xx-large;
+  text-transform: none;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app_icon-icon_bw:before {
+  content: "\e901";
+}
+
+/* Override Material styles */
+:root {
+  --mdc-theme-primary: #376b1f;
+  --mdc-theme-secondary: #55634c;
+}
+
+.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
+.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  color: #376b1f;
+}
+
+/* Custom styles */
+body {
+  margin: 0;
+  width: max-content;
+  min-width: 400px;
+}
+
+main {
+  margin: 0 8px;
+}
+
+.bookmark-card__title {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.0125em;
+  text-decoration: inherit;
+  text-transform: inherit;
+}
+
+.bookmark-card__subhead {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.0178571429em;
+  text-decoration: inherit;
+  text-transform: inherit;
+  opacity: 0.6;
+}
+
+.bookmark-card-content {
+  padding: 8px 16px 0 16px;
+  margin: 8px 0;
+}
+
+.duplicate-li {
+  padding: 8px 0;
+  transition: opacity 0.3s;
+}
+
+.duplicate-li.removed {
+  opacity: 0;
+}
+
+.menu-li {
+  height: 32px;
+  width: max-content;
+  align-items: center;
+}
+
+#find-bookmarks {
+  margin: 8px 0;
+  padding-top: 5px;
+}
+
+#find-bookmarks > * {
+  margin: 4px;
+}
+
+#find-bookmarks .mdc-text-field__input {
+  width: 300px;
+}
+
+.alert {
+  --bs-alert-padding-x: 1rem;
+  --bs-alert-padding-y: 1rem;
+  --bs-alert-margin-bottom: 1rem;
+  --bs-alert-color: inherit;
+  --bs-alert-border-color: transparent;
+  --bs-alert-border: 1px solid var(--bs-alert-border-color);
+  --bs-alert-border-radius: 0.375rem;
+  position: relative;
+  padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+  margin-bottom: var(--bs-alert-margin-bottom);
+  color: var(--bs-alert-color);
+  background-color: var(--bs-alert-bg);
+  border: var(--bs-alert-border);
+  border-radius: var(--bs-alert-border-radius);
+}
+
+.alert-warning {
+  --bs-alert-color: #664d03;
+  --bs-alert-bg: #fff3cd;
+  --bs-alert-border-color: #ffecb5;
+}
+
+.about-extension__main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 16px;
+}
+
+.about-extension__additional-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+}
+
+.about-extension__source-img {
+  width: 32px;
+  height: auto;
+}

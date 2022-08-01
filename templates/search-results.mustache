@@ -1,0 +1,19 @@
+<div>
+    <div class="alert alert-warning bookmark-card__title" role="alert">
+        {{i18n.msg_FoundQty}}<br>
+    </div>
+</div>
+
+<form id="bookmarks-list">
+    {{#hasResults}}
+        <button class="mdc-button mdc-button--outlined" type="submit" disabled>
+            <span class="mdc-button__ripple"></span>
+            <i class="material-icons mdc-button__icon" aria-hidden="true">delete</i>
+            <span class="mdc-button__label">{{i18n.btn_deleteSelected}}</span>
+        </button>
+    {{/hasResults}}
+
+    {{#cards}}
+        {{> card}}
+    {{/cards}}
+</form>
