@@ -150,3 +150,11 @@ main {
   width: 32px;
   height: auto;
 }
+
+#app-bar-menu-btn {
+  transition: transform .3s;
+}
+
+#app-bar-menu-btn.menu-opened {
+  transform: rotate(90deg);
+}
