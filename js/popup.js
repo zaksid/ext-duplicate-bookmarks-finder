@@ -285,29 +285,50 @@ function deleteDuplicatesSubmitHandler(event) {
         if (action.detail.action === 'confirm') {
             browserInstance.removeBookmarks(selectedBookmarks);
 
+            // Hide removed bookmarks
             const selectedCheckboxes = form.querySelectorAll('input[type="checkbox"]:checked');
-
-            selectedCheckboxes.forEach((checkbox) => {
+            selectedCheckboxes.forEach(async (checkbox) => {
                 const parent = checkbox.closest('.duplicate-li');
-                parent.classList.add('removed');
-                parent.addEventListener('transitionend', () => {
-                    // Hide li of duplicate
-                    parent.style.display = 'none';
+                await hideElementWithAnimation(parent);
 
-                    // Hide li divider
-                    const prevSibling = parent.previousElementSibling;
-                    if (prevSibling && prevSibling.classList.contains('mdc-list-divider')) {
-                        prevSibling.style.display = 'none';
-                    }
-
-                    // Disable "Delete selected" button
-                    const deleteButton = form.querySelector('.mdc-button');
-                    deleteButton.disabled = true;
-                });
+                // Hide li divider
+                const prevSibling = parent.previousElementSibling;
+                if (prevSibling && prevSibling.classList.contains('mdc-list-divider')) {
+                    prevSibling.style.display = 'none';
+                }
             });
+
+            // Hide empty cards
+            document.querySelectorAll('.bookmark-card-content').forEach((card)=>{
+                const removedQty = card.querySelectorAll('.duplicate-li.removed').length;
+                const allQty = card.querySelectorAll('.duplicate-li').length;
+
+                if (removedQty === allQty) {
+                    hideElementWithAnimation(card);
+                }
+            });
+
+            // Disable "Delete selected" button
+            const deleteButton = form.querySelector('.mdc-button');
+            deleteButton.disabled = true;
+
+            // Hide alert
+            const alert = document.querySelector('.alert-warning')
+            if (alert) {
+                hideElementWithAnimation(alert);
+            }
 
             const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
             snackbar.open();
         }
     });
+}
+
+function hideElementWithAnimation(element) {
+    element.classList.add('removed');
+    element.addEventListener('transitionend', () => {
+        element.style.display = 'none';
+    });
+
+    return Promise.resolve();
 }
