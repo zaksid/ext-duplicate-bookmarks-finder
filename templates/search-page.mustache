@@ -1,3 +1,12 @@
+{{!
+<button class="mdc-button mdc-button--raised" id="showAll">
+    <span class="mdc-button__ripple"></span>
+    <span class="mdc-button__touch"></span>
+    <i class="material-icons mdc-button__icon" aria-hidden="true">search</i>
+    <span class="mdc-button__label">show all</span>
+</button>
+}}
+
 <form id="find-bookmarks">
     <button class="mdc-button mdc-button--raised" type="submit">
         <span class="mdc-button__ripple"></span>
@@ -24,8 +33,12 @@
     </label>
 </form>
 
-<div id="search-results">
+<div id="search-results" hidden>
     <!-- Mustache template with search results will be rendered here -->
+
+    <div id="loader-wrapper">
+        {{> loader }}
+    </div>
 </div>
 
 <aside class="mdc-snackbar">

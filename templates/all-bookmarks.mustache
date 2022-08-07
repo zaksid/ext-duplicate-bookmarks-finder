@@ -1,0 +1,38 @@
+<div>Found {{bookmarks.length}} bookmarks</div>
+
+<ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
+{{# bookmarks }}
+    <li role="separator" class="mdc-list-divider"></li>
+    <li class="mdc-list-item bookmark-li" role="checkbox" aria-checked="false">
+        <span class="mdc-list-item__ripple"></span>
+        <span class="mdc-list-item__graphic">
+            <div class="mdc-checkbox">
+                <input
+                    type="checkbox"
+                    class="mdc-checkbox__native-control bookmark-checkbox"
+                    id="bookmark-{{id}}"
+                    name="bookmark"
+                    value="{{id}}"
+                />
+                <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                </div>
+            </div>
+        </span>
+
+        <span class="mdc-list-item__text">
+            <span class="mdc-list-item__primary-text">
+                <label class="mdc-list-item__text" for="bookmark-{{id}}">{{index}}) {{title}}</label>
+                <br>
+                <a href="{{url}}">{{url}}</a>
+            </span>
+            <span class="mdc-list-item__secondary-text">
+                {{myPath}}
+            </span>
+        </span>
+    </li>
+{{/ bookmarks }}
+</ul>
