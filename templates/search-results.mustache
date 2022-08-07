@@ -1,3 +1,10 @@
+{{# isLoader }}
+<div id="loader-wrapper">
+    {{> loader }}
+</div>
+{{/ isLoader }}
+
+{{^ isLoader }}
 <div>
     <div class="alert alert-warning bookmark-card__title" role="alert">
         {{i18n.msg_FoundQty}}<br>
@@ -17,3 +24,4 @@
         {{> card}}
     {{/cards}}
 </form>
+{{/ isLoader }}
