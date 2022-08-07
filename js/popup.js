@@ -1,34 +1,37 @@
+/* eslint-disable import/extensions, no-new */
+/* global mdc, chrome, browser, Mustache */
+
 import Browser from './Browser.js';
 import Bookmarks from './Bookmarks.js';
 
-const MDCDialog = mdc.dialog.MDCDialog;
-const MDCMenu = mdc.menu.MDCMenu;
-const MDCMenuSurface = mdc.menuSurface.MDCMenuSurface;
-const MDCRipple = mdc.ripple.MDCRipple;
-const MDCSnackbar = mdc.snackbar.MDCSnackbar;
-const MDCTextField = mdc.textField.MDCTextField;
-const MDCTopAppBar = mdc.topAppBar.MDCTopAppBar;
+const { MDCDialog } = mdc.dialog;
+const { MDCMenu } = mdc.menu;
+const { MDCMenuSurface } = mdc.menuSurface;
+const { MDCRipple } = mdc.ripple;
+const { MDCSnackbar } = mdc.snackbar;
+const { MDCTextField } = mdc.textField;
+const { MDCTopAppBar } = mdc.topAppBar;
 
 const Config = {
-    'githubUrl': 'https://github.com/zaksid/ext-duplicate-bookmarks-finder'
+    githubUrl: 'https://github.com/zaksid/ext-duplicate-bookmarks-finder',
 };
 
 const MainNavBtnIcons = {
     APP_MAIN: '<span class="app_icon-icon_bw"></span>',
-    BACK: 'arrow_back'
+    BACK: 'arrow_back',
 };
 
 const MainNavBtnClasses = {
-    ABOUT: 'is-about-content'
+    ABOUT: 'is-about-content',
 };
 
 const Classes = {
     MENU_OPENED: 'menu-opened', // also used for CSS rotate
-}
+};
 
 const state = {
     duplicatesSearchResult: null,
-    selectedDuplicates: null
+    selectedDuplicates: null,
 };
 
 const browserInstance = new Browser(navigator.userAgent.includes('Chrome') ? chrome : browser);
@@ -60,13 +63,14 @@ async function init(isReInit) {
 
         if (state.selectedDuplicates) {
             state.selectedDuplicates.forEach((id) => {
-                document.querySelector(`#${id}`).click()
+                document.querySelector(`#${id}`).click();
             });
         }
     }
 }
 
 // TODO
+// eslint-disable-next-line no-unused-vars
 async function showAllHandler() {
     const searchResultsContainer = document.querySelector('#search-results');
 
@@ -101,10 +105,10 @@ async function initSearchTemplate() {
             bookmarksDeleteConfirmationTitle: browserInstance.i18n.getMessage('bookmarksDeleteConfirmationTitle'),
             bookmarksDeleteConfirmation: browserInstance.i18n.getMessage('bookmarksDeleteConfirmation'),
             bookmarksDeletedMsg: browserInstance.i18n.getMessage('bookmarksDeletedMsg'),
-            input_hint_ignoredUrlRegex: browserInstance.i18n.getMessage('input_hint_ignoredUrlRegex')
-        }
+            input_hint_ignoredUrlRegex: browserInstance.i18n.getMessage('input_hint_ignoredUrlRegex'),
+        },
     }, {
-        loader: loaderTemplate
+        loader: loaderTemplate,
     });
 }
 
@@ -121,7 +125,7 @@ function initMDCComponents(isReInit) {
         const menu = new MDCMenu(document.querySelector('.mdc-menu'));
         const menuBtn = document.querySelector('#app-bar-menu-btn');
         const menuSurface = new MDCMenuSurface(document.querySelector('.mdc-menu-surface'));
-        menuSurface.listen('MDCMenuSurface:closed', () => menuBtn.classList.remove(Classes.MENU_OPENED))
+        menuSurface.listen('MDCMenuSurface:closed', () => menuBtn.classList.remove(Classes.MENU_OPENED));
         menuBtn.addEventListener('click', openMenuHandler.bind(this, menu, menuBtn));
     }
 }
@@ -153,14 +157,14 @@ async function menuAboutClickHandler() {
         githubUrl: Config.githubUrl,
         i18n: {
             alt_extIcon: browserInstance.i18n.getMessage('alt_extIcon'),
-            txt_version: browserInstance.i18n.getMessage('txt_version')
-        }
+            txt_version: browserInstance.i18n.getMessage('txt_version'),
+        },
     });
 }
 
 function openMenuHandler(menu, menuBtn) {
     const classes = menuBtn.classList;
-    const classMenuOpened = Classes.MENU_OPENED
+    const classMenuOpened = Classes.MENU_OPENED;
 
     if (classes.contains(classMenuOpened)) {
         classes.remove(classMenuOpened);
@@ -168,7 +172,8 @@ function openMenuHandler(menu, menuBtn) {
     }
 
     classes.add(classMenuOpened);
-    menu.open = true
+    // eslint-disable-next-line no-param-reassign
+    menu.open = true;
 
     const menuItemAbout = document.querySelector('#menuitem-about');
     menuItemAbout.addEventListener('click', menuAboutClickHandler);
@@ -184,7 +189,7 @@ async function findBookmarksHandler(event) {
     const searchResultsContainer = document.querySelector('#search-results');
     searchResultsContainer.hidden = false;
 
-    if (shouldClear){
+    if (shouldClear) {
         const searchResultsTemplate = await (await fetch('templates/search-results.mustache')).text();
         const loaderTemplate = await (await fetch('templates/loader.mustache')).text();
 
@@ -222,18 +227,18 @@ async function renderSearchResults(array) {
             items: matches,
             i18n: {
                 txt_cardMatchNo: browserInstance.i18n.getMessage('txt_cardMatchNo', (ind + 1).toString()),
-                txt_path: browserInstance.i18n.getMessage('txt_path')
-            }
+                txt_path: browserInstance.i18n.getMessage('txt_path'),
+            },
         })),
         i18n: {
             btn_deleteSelected: browserInstance.i18n.getMessage('btn_deleteSelected'),
             msg_FoundQty: duplicatesQty
                 ? browserInstance.i18n.getMessage('msgFoundQty', duplicatesQty.toString())
-                : browserInstance.i18n.getMessage('msgFoundNone')
-        }
+                : browserInstance.i18n.getMessage('msgFoundNone'),
+        },
     };
     const partial = {
-        card: bookmarkCardTemplate
+        card: bookmarkCardTemplate,
     };
 
     const searchResultsContainer = document.querySelector('#search-results');
@@ -254,10 +259,11 @@ async function renderSearchResults(array) {
         state.selectedDuplicates = [];
         selectedCheckboxes.forEach((checkbox) => {
             state.selectedDuplicates.push(checkbox.id);
-        })
+        });
     };
     document.addEventListener('change', (e) => {
         // loop parent nodes from the target to the delegation node
+        // eslint-disable-next-line prefer-destructuring
         for (let target = e.target; target && target !== this; target = target.parentNode) {
             if (target.classList.contains(elementSelector)) {
                 handler.call(target, e);
@@ -299,7 +305,7 @@ function deleteDuplicatesSubmitHandler(event) {
             });
 
             // Hide empty cards
-            document.querySelectorAll('.bookmark-card-content').forEach((card)=>{
+            document.querySelectorAll('.bookmark-card-content').forEach((card) => {
                 const removedQty = card.querySelectorAll('.duplicate-li.removed').length;
                 const allQty = card.querySelectorAll('.duplicate-li').length;
 
@@ -313,7 +319,7 @@ function deleteDuplicatesSubmitHandler(event) {
             deleteButton.disabled = true;
 
             // Hide alert
-            const alert = document.querySelector('.alert-warning')
+            const alert = document.querySelector('.alert-warning');
             if (alert) {
                 hideElementWithAnimation(alert);
             }
@@ -327,6 +333,7 @@ function deleteDuplicatesSubmitHandler(event) {
 function hideElementWithAnimation(element) {
     element.classList.add('removed');
     element.addEventListener('transitionend', () => {
+        // eslint-disable-next-line no-param-reassign
         element.style.display = 'none';
     });
 
