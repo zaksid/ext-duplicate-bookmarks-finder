@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+
 export default class Bookmarks {
     constructor(bookmarksTree) {
         this.processedBookmarks = [];
@@ -16,13 +18,13 @@ export default class Bookmarks {
                     if (!('myPath' in bookmark)) {
                         bookmark.myPath = '';
                     }
-                    bookmark.myPath += path + '/';
+                    bookmark.myPath += `${path}/`;
                 }
                 this.processedBookmarks.push(bookmark);
             }
 
             if (bookmark.children) {
-                this.#prepareBookmarks(bookmark.children, `${path ? path + '/' : ''}${bookmark.title}`);
+                this.#prepareBookmarks(bookmark.children, `${path ? `${path}/` : ''}${bookmark.title}`);
             }
         }
     }
@@ -38,7 +40,7 @@ export default class Bookmarks {
         const ignoredUrlsRegex = new RegExp(ignoredUrls);
 
         for (let i = 0; i < array.length; i++) {
-            let currentElem = array[i];
+            const currentElem = array[i];
             let wasMatched = false;
 
             if (ignoredUrls && ignoredUrlsRegex.test(currentElem.url)) {
@@ -46,8 +48,8 @@ export default class Bookmarks {
             }
 
             for (let j = i + 1; j < array.length; j++) {
-                let url1 = currentElem.url.replace(httpsRegex);
-                let url2 = array[j].url.replace(httpsRegex);
+                const url1 = currentElem.url.replace(httpsRegex);
+                const url2 = array[j].url.replace(httpsRegex);
 
                 if (url1 === url2) {
                     if (!(i in matches)) {

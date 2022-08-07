@@ -10,7 +10,7 @@ export default class Browser {
 
         return new Promise((resolve) => {
             this.browser.bookmarks.getTree((results) => {
-                resolve(results)
+                resolve(results);
             });
         });
     }
