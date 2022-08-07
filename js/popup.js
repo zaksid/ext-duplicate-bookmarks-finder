@@ -3,6 +3,7 @@ import Bookmarks from './Bookmarks.js';
 
 const MDCDialog = mdc.dialog.MDCDialog;
 const MDCMenu = mdc.menu.MDCMenu;
+const MDCMenuSurface = mdc.menuSurface.MDCMenuSurface;
 const MDCRipple = mdc.ripple.MDCRipple;
 const MDCSnackbar = mdc.snackbar.MDCSnackbar;
 const MDCTextField = mdc.textField.MDCTextField;
@@ -21,6 +22,10 @@ const MainNavBtnClasses = {
     ABOUT: 'is-about-content'
 };
 
+const Classes = {
+    MENU_OPENED: 'menu-opened', // also used for CSS rotate
+}
+
 const state = {
     duplicatesSearchResult: null,
     selectedDuplicates: null
@@ -28,11 +33,11 @@ const state = {
 
 const browserInstance = new Browser(navigator.userAgent.includes('Chrome') ? chrome : browser);
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', init.bind(this, false));
 
-async function init() {
+async function init(isReInit) {
     await initSearchTemplate();
-    initMDCComponents();
+    initMDCComponents(isReInit);
 
     const appBarTitle = document.querySelector('#app-bar-title');
     appBarTitle.innerHTML = browserInstance.i18n.getMessage('extensionName');
@@ -103,7 +108,7 @@ async function initSearchTemplate() {
     });
 }
 
-function initMDCComponents() {
+function initMDCComponents(isReInit) {
     const findButton = document.querySelector('.mdc-button');
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
     const inputElement = document.querySelector('.mdc-text-field');
@@ -112,19 +117,21 @@ function initMDCComponents() {
     new MDCTextField(inputElement);
     new MDCTopAppBar(topAppBarElement);
 
-    const menu = new MDCMenu(document.querySelector('.mdc-menu'));
-    menu.open = false;
-
-    document.querySelector('#app-bar-menu-btn').addEventListener('click', openMenuHandler.bind(this, menu));
+    if (!isReInit) {
+        const menu = new MDCMenu(document.querySelector('.mdc-menu'));
+        const menuBtn = document.querySelector('#app-bar-menu-btn');
+        const menuSurface = new MDCMenuSurface(document.querySelector('.mdc-menu-surface'));
+        menuSurface.listen('MDCMenuSurface:closed', () => menuBtn.classList.remove(Classes.MENU_OPENED))
+        menuBtn.addEventListener('click', openMenuHandler.bind(this, menu, menuBtn));
+    }
 }
 
 function mainNavBtnClickHandler() {
     if (this.classList.contains(MainNavBtnClasses.ABOUT)) {
         const appBarNavBtn = document.querySelector('#app-bar-nav-btn');
-
         appBarNavBtn.innerHTML = MainNavBtnIcons.APP_MAIN;
 
-        init();
+        init(true);
     }
 }
 
@@ -151,12 +158,17 @@ async function menuAboutClickHandler() {
     });
 }
 
-function openMenuHandler(menu) {
-    if (menu.open) {
-        menu.open = false;
-    } else {
-        menu.open = true;
+function openMenuHandler(menu, menuBtn) {
+    const classes = menuBtn.classList;
+    const classMenuOpened = Classes.MENU_OPENED
+
+    if (classes.contains(classMenuOpened)) {
+        classes.remove(classMenuOpened);
+        return;
     }
+
+    classes.add(classMenuOpened);
+    menu.open = true
 
     const menuItemAbout = document.querySelector('#menuitem-about');
     menuItemAbout.addEventListener('click', menuAboutClickHandler);
@@ -224,7 +236,9 @@ async function renderSearchResults(array) {
         card: bookmarkCardTemplate
     };
 
-    document.querySelector('#search-results').innerHTML = Mustache.render(searchResultsTemplate, data, partial);
+    const searchResultsContainer = document.querySelector('#search-results');
+    searchResultsContainer.innerHTML = Mustache.render(searchResultsTemplate, data, partial);
+    searchResultsContainer.hidden = false;
 
     const duplicateBookmarksForm = document.querySelector('#bookmarks-list');
     duplicateBookmarksForm.addEventListener('submit', deleteDuplicatesSubmitHandler);
