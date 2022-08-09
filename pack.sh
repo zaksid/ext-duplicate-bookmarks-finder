@@ -1,40 +1,70 @@
 #!/bin/bash
 
-# By default manifest.json (version 3) is usef.
-# To pack for Firefox manifest_v2.json (MV2) should be used.
-# Pass flag -b ff.
+help="
+\n
+Usage \n
+    \t bash pack.sh \n\n
+Example \n
+    \t bash pack.sh -p firefox -m dev \n\n
+Options \n
+    \t -p           \t\t platform - Platform to build for. \n
+                    \t\t\t If 'firefox' is specified - build for Firefox publishing. Otherwise - for Chromium. \n\n
+    \t -m           \t\t mode - Packing mode. \n
+                    \t\t\t If 'dev' is specified - development mode. Create only build folder, don't zip. \n
+                    \t\t\t Otherwise mode=publishing (create zip, remove build folder).
+"
 
-if [[ -d "tmp" ]]; then
-    rm -rf tmp
-fi
+is_help=false
 
-mkdir tmp
-cp -r ./css ./fonts ./images ./js ./lib ./templates tmp/
-
-browser="chrome"
-
-while getopts ":b:" o; do
+while getopts ":p:m:h:" o; do
     case "${o}" in
-        b)
+        p)
             arg=${OPTARG}
 
-            if [ "$arg" == "ff" ]
-            then
-                browser="firefox"
+            if [[ "$arg" == "firefox" ]]; then
+                platform="firefox"
             fi
             ;;
+        m)
+            arg=${OPTARG}
+
+            if [[ "$arg" == "dev" ]]; then
+                mode="development"
+            fi
+            ;;
+        h)
+            is_help=true
+            ;;
         *)
-            browser="chrome"
             ;;
     esac
 done
 
-if [ "$browser" == "firefox" ]
-then
-    cp manifest_v2.json tmp/manifest.json
-else
-    cp manifest.json tmp/
+if [[ is_help ]]; then
+    echo -e ${help}
+    exit 0
 fi
 
-zip -r extension-${browser}.zip tmp
-rm -rf tmp
+if [[ -d "build" ]]; then
+    rm -rf build
+fi
+
+mkdir build
+cp -r ./src/* build/
+rm build/manifest*.*
+
+platform="chromium"
+mode="publishing"
+
+cp ./platform/${platform}/manifest.json build
+
+if [[ "$mode" == "development" ]]; then
+    cd build
+    zip -r extension-${platform}.zip *
+    mv extension-${platform}.zip ../
+    cd ../
+fi
+
+if [[ "$mode" == "publishing" ]]; then
+    rm -rf build
+fi

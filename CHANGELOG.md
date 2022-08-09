@@ -1,3 +1,6 @@
+## 0.2.0 (2022-08-09)
+* 🛠 Updated project structure and build process ([c51869f](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/c51869f))
+
 ## <small>0.1.4 (2022-08-07)</small>
 * 📦 Resolve #9: Create sh script to zip necessary files for publishing (#11) ([67ee736](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/67ee736)), closes [#9](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/9) [#11](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/11)
 * 🚑 Resolve #7: Add eslint / stylelint (#10) ([9fa2558](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/9fa2558)), closes [#7](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/7) [#10](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/10)
