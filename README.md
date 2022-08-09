@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-0.1.4-blue)
+![version](https://img.shields.io/badge/version-0.2-blue)
 ![GitHub](https://img.shields.io/github/license/zaksid/ext-duplicate-bookmarks-finder)
 
 
@@ -41,7 +41,7 @@ Available npm scripts:
 
 To update extension version in all places where it's contained (manifests, README...), run
 ```
-bash set-version.sh -v X.Y.Z.
+bash set-version.sh -v X.Y.Z
 ```
 
 ### Packing extension for store
@@ -50,11 +50,19 @@ To prepare zip archive for publishing in browser app store, run
 ```
 bash pack.sh
 ```
-It copies only files and folder required for extension itself into zip.
-By default it will pack files for Chrome browser (with MV3). Mozilla Firefox requires MV2, to prepare zip for it run
-```
-bash pack.sh -b ff
-```
+Options:
+* `-p` - platform - Platform to build for. If `firefox` is specified - build for Firefox publishing. Otherwise - for Chromium.
+* `-m` - mode - Packing mode. If `dev` is specified - development mode.Create only build folder, don't zip. Otherwise mode=publishing (create zip, remove build folder).
+
+### Recommended workflow
+1. Make changes.
+2. Run `bash set-version.sh -v X.Y.Z`.
+3. Commit changes.
+4. Update version in `package.json` + run `npm i`.
+5. Run `npm run version`.
+6. Commit `package.json`, `package-lock.json` and `CHANGELOG.md` files.
+7. Tag.
+8. Push.
 
 ## Possible further enhancements
 
