@@ -1,27 +1,25 @@
+# Duplicate Bookmarks Finder
+
 ![version](https://img.shields.io/badge/version-0.2-blue)
 ![GitHub](https://img.shields.io/github/license/zaksid/ext-duplicate-bookmarks-finder)
-
-
-# Duplicate Bookmarks Finder
 
 Find and delete duplicate bookmarks.
 
 <p align="center">
     <a href="https://chrome.google.com/webstore/detail/duplicate-bookmarks-finde/mmfbmpbplefbggnhpiojnhcadkhglnlf">
-        <img src="store_images/cws_badge_large_border.png" alt="Get Duplicate Bookmarks Finder for Firefox" style="height: 60px">
+        <img src="store_images/badges/cws_badge_large_border.png" alt="Get Duplicate Bookmarks Finder for Chrome" style="height: 60px">
     </a>
     <a href="https://addons.mozilla.org/addon/duplicate-bookmarks-finder/">
-        <img src="store_images/amo_badge.png" alt="Get Duplicate Bookmarks Finder for Firefox" style="height: 60px">
+        <img src="store_images/badges/amo_badge.png" alt="Get Duplicate Bookmarks Finder for Firefox" style="height: 60px">
     </a>
 </p>
 
-This extension allows to find and delete duplicate bookmarks.
+This extension is a browser pop-up that allows to find and delete duplicate bookmarks.
 
 <p align="center">
-    <img src="store_images/screenshot_1.png" style=" width: 250px">
-    <img src="store_images/screenshot_2.png" style=" width: 250px">
-    <img src="store_images/screenshot_3.png" style=" width: 250px">
-    <img src="store_images/screenshot_4.png" style=" width: 250px">
+    <img src="store_images/screenshots/ext_screenshot_1.png" style=" width: 250px" alt="screenshot image 1">
+    <img src="store_images/screenshots/ext_screenshot_2.png" style=" width: 250px" alt="screenshot image 2">
+    <img src="store_images/screenshots/ext_screenshot_3.png" style=" width: 250px" alt="screenshot image 3">
 </p>
 
 ## Developer section
