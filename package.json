@@ -1,6 +1,6 @@
 {
   "name": "duplicate-bookmarks-finder",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Find and delete duplicate bookmarks in browser",
   "devDependencies": {
     "conventional-changelog-cli": "^2.2.2",
