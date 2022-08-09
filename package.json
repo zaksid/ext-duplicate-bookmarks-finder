@@ -16,8 +16,9 @@
   },
   "prettier": "prettier-airbnb-config",
   "scripts": {
-    "lint:js": "eslint .",
-    "lint:css": "stylelint \"**/*.css\"",
+    "lint": "npm run lint:css & npm run lint:js",
+    "lint:js": "eslint ./src",
+    "lint:css": "stylelint \"./src/**/*.css\"",
     "version": "conventional-changelog -i CHANGELOG.md -s && git add CHANGELOG.md"
   }
 }
