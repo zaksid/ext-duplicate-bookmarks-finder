@@ -14,9 +14,11 @@ Options \n
                     \t\t\t Otherwise mode=publishing (create zip, remove build folder).
 "
 
+platform="chromium"
+mode="publishing"
 is_help=false
 
-while getopts ":p:m:h:" o; do
+while getopts ":p:m:h" o; do
     case "${o}" in
         p)
             arg=${OPTARG}
@@ -40,7 +42,7 @@ while getopts ":p:m:h:" o; do
     esac
 done
 
-if [[ is_help ]]; then
+if [[ "$is_help" = true ]]; then
     echo -e ${help}
     exit 0
 fi
@@ -51,11 +53,7 @@ fi
 
 mkdir build
 cp -r ./src/* build/
-rm build/manifest*.*
-
-platform="chromium"
-mode="publishing"
-
+rm -f build/manifest*.*
 cp ./platform/${platform}/manifest.json build
 
 if [[ "$mode" == "development" ]]; then
