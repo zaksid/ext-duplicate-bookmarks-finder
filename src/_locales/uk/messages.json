@@ -7,6 +7,10 @@
         "message": "Пошук і видалення дублікатів закладок.",
         "description": "Description of the extension."
     },
+    "extensionDescriptionLong": {
+        "message": "Це розширення дозволяє легко знайти та видалити дублікати закладок у браузер.",
+        "description": "Long description of the extension."
+    },
     "btn_findDuplicates": {
         "message": "Пошук"
     },
