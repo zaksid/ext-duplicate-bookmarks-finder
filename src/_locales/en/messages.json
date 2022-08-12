@@ -7,6 +7,10 @@
         "message": "Find and delete duplicate bookmarks.",
         "description": "Description of the extension."
     },
+    "extensionDescriptionLong": {
+        "message": "This extension allows to find and delete duplicate bookmarks.",
+        "description": "Long description of the extension."
+    },
     "btn_findDuplicates": {
         "message": "Find"
     },
