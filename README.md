@@ -1,6 +1,6 @@
 # Duplicate Bookmarks Finder
 
-![version](https://img.shields.io/badge/version-0.2-blue)
+![version](https://img.shields.io/badge/version-0.2.0-blue)
 ![GitHub](https://img.shields.io/github/license/zaksid/ext-duplicate-bookmarks-finder)
 
 Find and delete duplicate bookmarks.
@@ -11,6 +11,12 @@ Find and delete duplicate bookmarks.
     </a>
     <a href="https://addons.mozilla.org/addon/duplicate-bookmarks-finder/">
         <img src="store_images/badges/amo_badge.png" alt="Get Duplicate Bookmarks Finder for Firefox" style="height: 60px">
+    </a>
+    <a href="https://microsoftedge.microsoft.com/addons/detail/hlhmdjbnfokogkfbdjefekgpbjggbmcl">
+        <img src="store_images/badges/ms_badge.png" alt="Get Duplicate Bookmarks Finder for Edge" style="height: 60px">
+    </a>
+    <a href="https://addons.opera.com/en/extensions/details/duplicate-bookmarks-finder/">
+        <img src="store_images/badges/opera_badge.png" alt="Get Duplicate Bookmarks Finder for Opera" style="height: 60px">
     </a>
 </p>
 
@@ -49,7 +55,7 @@ To prepare zip archive for publishing in browser app store, run
 bash pack.sh
 ```
 Options:
-* `-p` - platform - Platform to build for. If `firefox` is specified - build for Firefox publishing. Otherwise - for Chromium.
+* `-p` - platform - Platform to build for. Possible values: `firefox`, `opera`. Default (param not provided) `chromium`.
 * `-m` - mode - Packing mode. If `dev` is specified - development mode.Create only build folder, don't zip. Otherwise mode=publishing (create zip, remove build folder).
 
 ### Recommended workflow

@@ -3,4 +3,5 @@
 .vscode/
 node_modules/
 build/
+*.crx
 *.zip

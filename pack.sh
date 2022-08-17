@@ -8,7 +8,7 @@ Example \n
     \t bash pack.sh -p firefox -m dev \n\n
 Options \n
     \t -p           \t\t platform - Platform to build for. \n
-                    \t\t\t If 'firefox' is specified - build for Firefox publishing. Otherwise - for Chromium. \n\n
+                    \t\t\t Possible values: 'firefox', 'opera'. Default (param not provided) 'chromium'. \n\n
     \t -m           \t\t mode - Packing mode. \n
                     \t\t\t If 'dev' is specified - development mode. Create only build folder, don't zip. \n
                     \t\t\t Otherwise mode=publishing (create zip, remove build folder).
