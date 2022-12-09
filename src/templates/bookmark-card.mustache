@@ -31,7 +31,9 @@
                     <span class="mdc-list-item__text">
                         <span class="mdc-list-item__primary-text">
                             <label class="mdc-list-item__text" for="duplicate-{{id}}">{{title}}</label>
-                            (<a href="{{url}}">{{url}}</a>)
+                            {{#url}}
+                                (<a href="{{url}}">{{url}}</a>)
+                            {{/url}}
                         </span>
                         <span class="mdc-list-item__secondary-text">
                             <strong>{{i18n.txt_path}}</strong>

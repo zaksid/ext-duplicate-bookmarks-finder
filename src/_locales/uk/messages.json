@@ -11,6 +11,9 @@
         "message": "Це розширення дозволяє легко знайти та видалити дублікати закладок у браузер.",
         "description": "Long description of the extension."
     },
+    "btn_add": {
+        "message": "Додати"
+    },
     "btn_findDuplicates": {
         "message": "Пошук"
     },
@@ -38,6 +41,9 @@
     "menu_about": {
         "message": "Про розширення"
     },
+    "menu_settings": {
+        "message": "Налаштування"
+    },
     "msgFoundQty": {
         "message": "Знайдено дублікатів: $QTY$",
         "placeholders": {
@@ -49,6 +55,21 @@
     },
     "msgFoundNone": {
         "message": "🥳 Дублікатів не знайдено!"
+    },
+    "settingDarksTheme": {
+        "message": "Темна тема"
+    },
+    "settingIgnoredPatterns": {
+        "message": "Ігноровані URL адреси"
+    },
+    "settingIgnoredPatternsDescription": {
+        "message": "Зразки URLs адрес (регулярки) які ігноруватимуться при пошуку"
+    },
+    "settingShowSeparators": {
+        "message": "Показувати роздільники"
+    },
+    "settingShowSeparatorsDescription": {
+        "message": "Показувати роздільники закладок під час пошуку"
     },
     "txt_cardMatchNo": {
         "message": "Співпадіння $NO$",
@@ -64,6 +85,12 @@
     },
     "txt_path": {
         "message": "Шлях:"
+    },
+    "txt_separator": {
+        "message": "Роздільник"
+    },
+    "txt_separators": {
+        "message": "Роздільники"
     },
     "txt_version": {
         "message": "Версія:"

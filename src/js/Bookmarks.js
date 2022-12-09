@@ -1,5 +1,7 @@
 /* eslint-disable no-continue */
 
+import { getExtensionSettings, isSeparator } from './utils/index.js';
+
 export default class Bookmarks {
     constructor(bookmarksTree) {
         this.processedBookmarks = [];
@@ -33,17 +35,39 @@ export default class Bookmarks {
         return this.processedBookmarks;
     }
 
-    getDuplicates(ignoredUrls) {
+    async getDuplicates(browserInstance) {
         const array = this.processedBookmarks.slice();
         const matches = {};
         const httpsRegex = /http(s)?/;
-        const ignoredUrlsRegex = new RegExp(ignoredUrls);
+        const settings = await getExtensionSettings(browserInstance);
+
+        const isIgnored = (url) => {
+            if ('ignoredUrls' in settings && settings.ignoredUrls.length) {
+                const matchesIgnoredPattern = settings.ignoredUrls.some((pattern) => {
+                    const regex = new RegExp(pattern);
+                    return regex.test(url);
+                });
+
+                if (matchesIgnoredPattern) {
+                    return true;
+                }
+            }
+
+            if (settings && 'showSeparators' in settings) {
+                if (settings.showSeparators) {
+                    return false;
+                }
+                return isSeparator(url);
+            }
+
+            return false;
+        };
 
         for (let i = 0; i < array.length; i++) {
             const currentElem = array[i];
             let wasMatched = false;
 
-            if (ignoredUrls && ignoredUrlsRegex.test(currentElem.url)) {
+            if (isIgnored(currentElem.url)) {
                 continue;
             }
 

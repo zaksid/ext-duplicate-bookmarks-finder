@@ -11,6 +11,9 @@
         "message": "This extension allows to find and delete duplicate bookmarks.",
         "description": "Long description of the extension."
     },
+    "btn_add": {
+        "message": "Add"
+    },
     "btn_findDuplicates": {
         "message": "Find"
     },
@@ -38,6 +41,9 @@
     "menu_about": {
         "message": "About"
     },
+    "menu_settings": {
+        "message": "Settings"
+    },
     "msgFoundQty": {
         "message": "Found $QTY$ duplicates",
         "placeholders": {
@@ -49,6 +55,21 @@
     },
     "msgFoundNone": {
         "message": "🥳 No duplicates found!"
+    },
+    "settingDarksTheme": {
+        "message": "Dark theme"
+    },
+    "settingIgnoredPatterns": {
+        "message": "Ignored URL patterns"
+    },
+    "settingIgnoredPatternsDescription": {
+        "message": "Patterns of URLs that should be ignored (RegExp)"
+    },
+    "settingShowSeparators": {
+        "message": "Show separators"
+    },
+    "settingShowSeparatorsDescription": {
+        "message": "Show bookmarks separators in search results"
     },
     "txt_cardMatchNo": {
         "message": "Match $NO$",
@@ -64,6 +85,12 @@
     },
     "txt_path": {
         "message": "Path"
+    },
+    "txt_separator": {
+        "message": "Separator"
+    },
+    "txt_separators": {
+        "message": "Separators"
     },
     "txt_version": {
         "message": "Version: "

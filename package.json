@@ -1,6 +1,6 @@
 {
   "name": "duplicate-bookmarks-finder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Find and delete duplicate bookmarks in browser",
   "author": "Oleksandr Mahdybor",
   "license": "MIT",
