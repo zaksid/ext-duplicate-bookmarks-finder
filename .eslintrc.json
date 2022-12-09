@@ -11,6 +11,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "import/extensions": ["error", "always"],
         "indent": ["error", 4],
         "no-plusplus": "off",
         "no-use-before-define": "off"

@@ -1,3 +1,8 @@
+## 0.3.0 (2022-12-09)
+
+* 🛠 Fixes #24: Top App Bar is not fixed (#25) ([85f7dc1](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/85f7dc1)), closes [#24](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/24)
+* Resolve #38 Add extension settings. Fixes #37 Bookmark separators are included in duplicates ([5e1606d](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/5e1606d)), closes [#38](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/38) [#37](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/37)
+
 ## 0.2.0 (2022-08-09)
 * 🛠 Updated project structure and build process ([c51869f](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/c51869f))
 

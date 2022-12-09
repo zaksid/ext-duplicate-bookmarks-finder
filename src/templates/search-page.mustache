@@ -1,11 +1,11 @@
-{{!
+<!--
 <button class="mdc-button mdc-button--raised" id="showAll">
     <span class="mdc-button__ripple"></span>
     <span class="mdc-button__touch"></span>
     <i class="material-icons mdc-button__icon" aria-hidden="true">search</i>
     <span class="mdc-button__label">show all</span>
 </button>
-}}
+-->
 
 <form id="find-bookmarks">
     <button class="mdc-button mdc-button--raised" type="submit">
@@ -14,23 +14,6 @@
         <i class="material-icons mdc-button__icon" aria-hidden="true">search</i>
         <span class="mdc-button__label">{{i18n.btn_findDuplicates}}</span>
     </button>
-
-    <label class="mdc-text-field mdc-text-field--outlined">
-        <span class="mdc-notched-outline">
-            <span class="mdc-notched-outline__leading"></span>
-            <span class="mdc-notched-outline__notch">
-                <span class="mdc-floating-label" id="my-label-id">{{i18n.input_hint_ignoredUrlRegex}}</span>
-            </span>
-            <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input
-            type="text"
-            class="mdc-text-field__input"
-            aria-labelledby="my-label-id"
-            name="ignoredUrls"
-            value=""
-        />
-    </label>
 </form>
 
 <div id="search-results" hidden>

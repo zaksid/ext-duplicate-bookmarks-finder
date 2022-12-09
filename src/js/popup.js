@@ -3,27 +3,17 @@
 
 import Browser from './Browser.js';
 import Bookmarks from './Bookmarks.js';
+import initSettingsPage from './pages/pageSettings.js';
+import initAboutPage from './pages/pageAbout.js';
+import { isSeparator } from './utils/index.js';
+import { MainNavBtnIcons, MainNavBtnClasses } from './constants.js';
 
 const { MDCDialog } = mdc.dialog;
 const { MDCMenu } = mdc.menu;
 const { MDCMenuSurface } = mdc.menuSurface;
 const { MDCRipple } = mdc.ripple;
 const { MDCSnackbar } = mdc.snackbar;
-const { MDCTextField } = mdc.textField;
 const { MDCTopAppBar } = mdc.topAppBar;
-
-const Config = {
-    githubUrl: 'https://github.com/zaksid/ext-duplicate-bookmarks-finder',
-};
-
-const MainNavBtnIcons = {
-    APP_MAIN: '<span class="app_icon-icon_bw"></span>',
-    BACK: 'arrow_back',
-};
-
-const MainNavBtnClasses = {
-    ABOUT: 'is-about-content',
-};
 
 const Classes = {
     MENU_OPENED: 'menu-opened', // also used for CSS rotate
@@ -44,6 +34,9 @@ async function init(isReInit) {
 
     const appBarTitle = document.querySelector('#app-bar-title');
     appBarTitle.innerHTML = browserInstance.i18n.getMessage('extensionName');
+
+    const menuSettingsText = document.querySelector('#menuitem-settings .mdc-list-item__text');
+    menuSettingsText.innerHTML = browserInstance.i18n.getMessage('menu_settings');
 
     const menuAboutText = document.querySelector('#menuitem-about .mdc-list-item__text');
     menuAboutText.innerHTML = browserInstance.i18n.getMessage('menu_about');
@@ -105,7 +98,6 @@ async function initSearchTemplate() {
             bookmarksDeleteConfirmationTitle: browserInstance.i18n.getMessage('bookmarksDeleteConfirmationTitle'),
             bookmarksDeleteConfirmation: browserInstance.i18n.getMessage('bookmarksDeleteConfirmation'),
             bookmarksDeletedMsg: browserInstance.i18n.getMessage('bookmarksDeletedMsg'),
-            input_hint_ignoredUrlRegex: browserInstance.i18n.getMessage('input_hint_ignoredUrlRegex'),
         },
     }, {
         loader: loaderTemplate,
@@ -115,10 +107,8 @@ async function initSearchTemplate() {
 function initMDCComponents(isReInit) {
     const findButton = document.querySelector('.mdc-button');
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-    const inputElement = document.querySelector('.mdc-text-field');
 
     new MDCRipple(findButton);
-    new MDCTextField(inputElement);
     new MDCTopAppBar(topAppBarElement);
 
     if (!isReInit) {
@@ -131,35 +121,12 @@ function initMDCComponents(isReInit) {
 }
 
 function mainNavBtnClickHandler() {
-    if (this.classList.contains(MainNavBtnClasses.ABOUT)) {
+    if (this.classList.contains(MainNavBtnClasses.IS_MENU_CONTENT)) {
         const appBarNavBtn = document.querySelector('#app-bar-nav-btn');
         appBarNavBtn.innerHTML = MainNavBtnIcons.APP_MAIN;
 
         init(true);
     }
-}
-
-async function menuAboutClickHandler() {
-    const appBarNavBtn = document.querySelector('#app-bar-nav-btn');
-    const appBarTitle = document.querySelector('#app-bar-title');
-
-    appBarNavBtn.innerHTML = MainNavBtnIcons.BACK;
-    appBarNavBtn.classList.add(MainNavBtnClasses.ABOUT);
-
-    appBarTitle.innerHTML = browserInstance.i18n.getMessage('menu_about');
-
-    const aboutTemplateResponse = await fetch('templates/about-page.mustache');
-    const aboutTemplate = await aboutTemplateResponse.text();
-
-    document.querySelector('#main-content').innerHTML = Mustache.render(aboutTemplate, {
-        extensionName: browserInstance.i18n.getMessage('extensionName'),
-        version: browserInstance.getExtensionVersion(),
-        githubUrl: Config.githubUrl,
-        i18n: {
-            alt_extIcon: browserInstance.i18n.getMessage('alt_extIcon'),
-            txt_version: browserInstance.i18n.getMessage('txt_version'),
-        },
-    });
 }
 
 function openMenuHandler(menu, menuBtn) {
@@ -176,7 +143,10 @@ function openMenuHandler(menu, menuBtn) {
     menu.open = true;
 
     const menuItemAbout = document.querySelector('#menuitem-about');
-    menuItemAbout.addEventListener('click', menuAboutClickHandler);
+    menuItemAbout.addEventListener('click', initAboutPage.bind(this, browserInstance));
+
+    const menuItemSettings = document.querySelector('#menuitem-settings');
+    menuItemSettings.addEventListener('click', initSettingsPage.bind(this, browserInstance));
 }
 
 async function findBookmarksHandler(event) {
@@ -205,7 +175,7 @@ async function findBookmarksHandler(event) {
 
     const bookmarksTree = await browserInstance.getBookmarksTree();
     const bookmarksInstance = new Bookmarks(bookmarksTree);
-    const bookmarks = bookmarksInstance.getDuplicates(ignoredUrls);
+    const bookmarks = await bookmarksInstance.getDuplicates(browserInstance, ignoredUrls);
 
     state.duplicatesSearchResult = bookmarks;
 
@@ -222,14 +192,28 @@ async function renderSearchResults(array) {
     const duplicatesQty = array.length;
     const data = {
         hasResults: !!duplicatesQty,
-        cards: array.map((matches, ind) => ({
-            url: prepareCardTitleUrl(matches[0]?.url),
-            items: matches,
-            i18n: {
-                txt_cardMatchNo: browserInstance.i18n.getMessage('txt_cardMatchNo', (ind + 1).toString()),
-                txt_path: browserInstance.i18n.getMessage('txt_path'),
-            },
-        })),
+        cards: array.map((matches, ind) => {
+            const isSeparatorrr = isSeparator(matches[0]?.url);
+
+            return {
+                url: isSeparatorrr
+                    ? browserInstance.i18n.getMessage('txt_separators')
+                    : prepareCardTitleUrl(matches[0]?.url),
+                items: matches.map((match) => {
+                    const obj = { ...match };
+                    if (isSeparatorrr) {
+                        obj.title = browserInstance.i18n.getMessage('txt_separator');
+                        obj.url = '';
+                    }
+
+                    return obj;
+                }),
+                i18n: {
+                    txt_cardMatchNo: browserInstance.i18n.getMessage('txt_cardMatchNo', (ind + 1).toString()),
+                    txt_path: browserInstance.i18n.getMessage('txt_path'),
+                },
+            };
+        }),
         i18n: {
             btn_deleteSelected: browserInstance.i18n.getMessage('btn_deleteSelected'),
             msg_FoundQty: duplicatesQty

@@ -1,0 +1,95 @@
+<div id="settings-page" class="mdc-dialog__content">
+    <button class="mdc-button mdc-button--icon-leading" id="reset-settings">
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">restart_alt</i>
+        <span class="mdc-button__label">Reset to defaults</span>
+    </button>
+    <ul class="mdc-list mdc-list--two-line">
+        {{# onOffSettings }}
+        <li class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text setting-item">
+                <div>
+                    <span class="mdc-list-item__primary-text">
+                        <label for="basic-switch">{{name}}</label>
+                    </span>
+                    {{#description}}
+                        <span class="mdc-list-item__secondary-text">{{description}}</span>
+                    {{/description}}
+                </div>
+                <button class="mdc-switch mdc-switch--unselected" type="button" role="switch" aria-checked="false"
+                    value="false" name="{{id}}">
+                    <div class="mdc-switch__track"></div>
+                    <div class="mdc-switch__handle-track">
+                        <div class="mdc-switch__handle">
+                            <div class="mdc-switch__shadow">
+                                <div class="mdc-elevation-overlay"></div>
+                            </div>
+                            <div class="mdc-switch__ripple"></div>
+                            <div class="mdc-switch__icons">
+                                <svg class="mdc-switch__icon mdc-switch__icon--on" viewBox="0 0 24 24">
+                                    <path d="M19.69,5.23L8.96,15.96l-4.23-4.23L2.96,13.5l6,6L21.46,7L19.69,5.23z" />
+                                </svg>
+                                <svg class="mdc-switch__icon mdc-switch__icon--off" viewBox="0 0 24 24">
+                                    <path d="M20 13H4v-2h16v2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </span>
+        </li>
+        {{/ onOffSettings }}
+
+        <li class="mdc-list-item list-item-chips" tabindex="0">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text setting-item">
+                <div>
+                    <span class="mdc-list-item__primary-text">
+                        {{i18n.settingIgnoredPatterns}}
+                    </span>
+                    <span class="mdc-list-item__secondary-text">{{i18n.settingIgnoredPatternsDescription}}</span>
+                </div>
+                <form id="ignored-patterns-form" class="settings-form" action="post">
+                    <label class="mdc-text-field mdc-text-field--outlined settings-text-field">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label"
+                                    id="my-label-id">{{i18n.input_hint_ignoredUrlRegex}}</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id"
+                            name="ignoredUrls" value="" />
+                    </label>
+                    <button class="mdc-button mdc-button--raised settings-button-add" type="submit">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__touch"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+                        <span class="mdc-button__label">{{i18n.btn_add}}</span>
+                    </button>
+                </form>
+                <div>
+                    <span class="mdc-chip-set" role="grid">
+                        <span class="mdc-chip-set__chips" role="presentation">
+                            {{#ignoredUrls}}
+                                <span class="mdc-chip" role="row" id="c1">
+                                    <span class="mdc-chip__cell mdc-chip__cell--primary" role="gridcell">
+                                        <button class="mdc-chip__action mdc-chip__action--primary" type="button"
+                                            tabindex="-1">
+                                            <span class="mdc-chip__ripple mdc-chip__ripple--primary"></span>
+                                            <span class="mdc-chip__text-label">{{.}}</span>
+                                            <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing remove-ignored-url" data-val="{{.}}"
+                                                tabindex="0" role="button">cancel</i>
+                                        </button>
+                                    </span>
+                                </span>
+                            {{/ignoredUrls}}
+                        </span>
+                    </span>
+                </div>
+            </span>
+        </li>
+    </ul>
+</div>
