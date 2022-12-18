@@ -10,15 +10,33 @@
         "storage"
     ],
     "browser_action": {
-        "default_icon": "/images/icon_32.png",
+        "browser_style": true,
+        "default_icon": "/images/icon_green_light_16.png",
         "default_title": "__MSG_extensionName__",
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "theme_icons": [{
+            "dark": "/images/icon_green_light_16.png",
+            "light": "/images/icon_green_dark_16.png",
+            "size": 16
+        }, {
+            "dark": "/images/icon_green_light_32.png",
+            "light": "/images/icon_green_dark_32.png",
+            "size": 32
+        }, {
+            "dark": "/images/icon_green_light_48.png",
+            "light": "/images/icon_green_dark_48.png",
+            "size": 48
+        }, {
+            "dark": "/images/icon_green_light_128.png",
+            "light": "/images/icon_green_dark_128.png",
+            "size": 128
+        }]
     },
     "icons": {
-        "16": "/images/icon_16.png",
-        "32": "/images/icon_32.png",
-        "48": "/images/icon_48.png",
-        "128": "/images/icon_128.png"
+        "16": "/images/icon_green_dark_16.png",
+        "32": "/images/icon_green_dark_32.png",
+        "48": "/images/icon_green_dark_48.png",
+        "128": "/images/icon_green_dark_128.png"
     },
     "default_locale": "en"
 }

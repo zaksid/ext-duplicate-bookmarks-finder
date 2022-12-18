@@ -1,7 +1,7 @@
 export function getDefaultExtensionSettings() {
     return {
         showSeparators: false,
-        darkMode: false,
+        theme: 'system',
         ignoredUrls: [],
     };
 }

@@ -27,15 +27,14 @@
   width: 85.32000000000001px;
   height: 85.32000000000001px;
   border-radius: 50%;
-  border: 14.22px solid #b3c430;
-  background: var(--mdc-theme-primary);
+  border: 14.22px solid  var(--mdc-theme-primary);
 }
 
 .ldio-5y59izw6pev > div > div div:nth-child(2) {
   width: 20.145px;
   height: 60.435px;
   transform: rotate(-45deg);
-  background: #b3c430;
+  background: var(--mdc-theme-primary);
   border-radius: 0 0 9.48px 9.48px;
   position: absolute;
   top: 80.58px;

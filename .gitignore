@@ -5,3 +5,7 @@ node_modules/
 build/
 *.crx
 *.zip
+
+src/css/material-components-web.css
+src/css/styles.css
+src/css/styles.css.map

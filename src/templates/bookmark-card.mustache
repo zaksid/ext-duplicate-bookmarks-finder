@@ -1,4 +1,4 @@
-<div class="mdc-card mdc-card--outlined bookmark-card-content">
+<div class="mdc-card bookmark-card-content">
     <div class="mdc-card-wrapper__text-section">
         <div class="bookmark-card__title"><strong>{{url}}</strong></div>
         <div class="bookmark-card__subhead">{{i18n.txt_cardMatchNo}}</div>
@@ -32,7 +32,9 @@
                         <span class="mdc-list-item__primary-text">
                             <label class="mdc-list-item__text" for="duplicate-{{id}}">{{title}}</label>
                             {{#url}}
-                                (<a href="{{url}}">{{url}}</a>)
+                                <div>
+                                    (<a href="{{url}}" class="bookmark-url">{{url}}</a>)
+                                </div>
                             {{/url}}
                         </span>
                         <span class="mdc-list-item__secondary-text">

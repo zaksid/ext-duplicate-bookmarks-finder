@@ -2,7 +2,7 @@
 /* global mdc, Mustache */
 
 import { getDefaultExtensionSettings, getExtensionSettings, setExtensionSettings } from '../utils/index.js';
-import { MainNavBtnIcons, MainNavBtnClasses } from '../constants.js';
+import { MainNavBtnIcons, MainNavBtnClasses, Theme } from '../constants.js';
 
 const { MDCSwitch } = mdc.switchControl;
 const { MDCTextField } = mdc.textField;
@@ -18,14 +18,7 @@ export default async function initSettingsPage(browserInstance) {
 
     const isFirefox = navigator.userAgent.includes('Firefox');
     const userSettings = await getExtensionSettings(browserInstance);
-    const onOffSettings = [
-        // TODO: Add dark theme
-        // {
-        //     id: 'darkMode',
-        //     name: browserInstance.i18n.getMessage('settingDarksTheme'),
-        //     value: userSettings.darkMode,
-        // },
-    ];
+    const onOffSettings = [];
 
     if (isFirefox) {
         onOffSettings.push({
@@ -42,11 +35,22 @@ export default async function initSettingsPage(browserInstance) {
     document.querySelector('#main-content').innerHTML = await Mustache.render(settingsTemplate, {
         onOffSettings,
         ignoredUrls: userSettings.ignoredUrls,
+        selectedTheme: userSettings.theme,
+        theme: {
+            isDark: userSettings.theme === Theme.DARK,
+            isLight: userSettings.theme === Theme.LIGHT,
+            isSystem: userSettings.theme === Theme.SYSTEM,
+        },
         i18n: {
             btn_add: browserInstance.i18n.getMessage('btn_add'),
+            btn_resetSettings: browserInstance.i18n.getMessage('btn_resetSettings'),
             input_hint_ignoredUrlRegex: browserInstance.i18n.getMessage('input_hint_ignoredUrlRegex'),
             settingIgnoredPatterns: browserInstance.i18n.getMessage('settingIgnoredPatterns'),
             settingIgnoredPatternsDescription: browserInstance.i18n.getMessage('settingIgnoredPatternsDescription'),
+            settingTheme: browserInstance.i18n.getMessage('settingTheme'),
+            settingThemeDark: browserInstance.i18n.getMessage('settingThemeDark'),
+            settingThemeLight: browserInstance.i18n.getMessage('settingThemeLight'),
+            settingThemeSystem: browserInstance.i18n.getMessage('settingThemeSystem'),
         },
     });
 
@@ -71,7 +75,7 @@ export default async function initSettingsPage(browserInstance) {
                     <span class="mdc-chip__ripple mdc-chip__ripple--primary"></span>
                     <span class="mdc-chip__text-label">${ignoredUrls}</span>
                     <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing remove-ignored-url" data-val="${ignoredUrls}"
-                        tabindex="0" role="button">cancel</i>
+                        tabindex="0" role="button">close</i>
                 </button>
             </span>
         </span>`;
@@ -99,6 +103,23 @@ export default async function initSettingsPage(browserInstance) {
         });
     });
 
+    const themeButtons = settingsPage.querySelectorAll('.theme-btn');
+
+    // Handle theme switching
+    themeButtons.forEach((elem) => {
+        elem.addEventListener('click', async (event) => {
+            const currentButton = event.currentTarget;
+            const val = currentButton.dataset.theme;
+
+            userSettings.theme = val;
+            document.documentElement.className = val === Theme.SYSTEM ? '' : val;
+
+            await setExtensionSettings(browserInstance, userSettings);
+            themeButtons.forEach((btn) => btn.classList.remove('selected'));
+            currentButton.classList.add('selected');
+        });
+    });
+
     const removeIgnoredUrl = async function () {
         const urlPattern = this.dataset.val;
         const index = userSettings.ignoredUrls.indexOf(urlPattern);
@@ -122,5 +143,6 @@ export default async function initSettingsPage(browserInstance) {
     settingsPage.querySelector('#reset-settings').addEventListener('click', async () => {
         await setExtensionSettings(browserInstance, getDefaultExtensionSettings());
         await initSettingsPage(browserInstance);
+        document.documentElement.className = '';
     });
 }

@@ -26,6 +26,9 @@
     "btn_deleteSelected": {
         "message": "Delete selected"
     },
+    "btn_resetSettings": {
+        "message": "Reset to defaults"
+    },
     "bookmarksDeleteConfirmationTitle": {
         "message": "Delete selected bookmarks?"
     },
@@ -56,8 +59,17 @@
     "msgFoundNone": {
         "message": "🥳 No duplicates found!"
     },
-    "settingDarksTheme": {
-        "message": "Dark theme"
+    "settingTheme": {
+        "message": "Theme"
+    },
+    "settingThemeDark": {
+        "message": "Dark"
+    },
+    "settingThemeLight": {
+        "message": "Light"
+    },
+    "settingThemeSystem": {
+        "message": "OS Default"
     },
     "settingIgnoredPatterns": {
         "message": "Ignored URL patterns"
@@ -84,7 +96,7 @@
         "message": "Extension icon"
     },
     "txt_path": {
-        "message": "Path"
+        "message": "Path:"
     },
     "txt_separator": {
         "message": "Separator"
