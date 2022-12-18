@@ -1,9 +1,11 @@
 # Duplicate Bookmarks Finder
 
-![version](https://img.shields.io/badge/version-0.3.0-blue)
+![version](https://img.shields.io/badge/version-1.0.0-blue)
 ![GitHub](https://img.shields.io/github/license/zaksid/ext-duplicate-bookmarks-finder)
 
 Find and delete duplicate bookmarks.
+
+Available for the following browsers:
 
 <p align="center">
     <a href="https://chrome.google.com/webstore/detail/duplicate-bookmarks-finde/mmfbmpbplefbggnhpiojnhcadkhglnlf">
@@ -22,11 +24,25 @@ Find and delete duplicate bookmarks.
 
 This extension is a browser pop-up that allows to find and delete duplicate bookmarks.
 
+### Features:
+- List all duplicated bookmarks
+- Delete selected duplicates
+- Dark/Light mode
+- Use RegEx to ignore particular URL patterns
+
 <p align="center">
-    <img src="store_images/screenshots/ext_screenshot_1.png" style=" width: 250px" alt="screenshot image 1">
-    <img src="store_images/screenshots/ext_screenshot_2.png" style=" width: 250px" alt="screenshot image 2">
-    <img src="store_images/screenshots/ext_screenshot_3.png" style=" width: 250px" alt="screenshot image 3">
+    <img src="store_images/screenshots/chrome_screenshot_2_L.png" style=" width: 250px" alt="screenshot image 1">
+    <img src="store_images/screenshots/chrome_screenshot_3_L.png" style=" width: 250px" alt="screenshot image 2">
+    <img src="store_images/screenshots/chrome_screenshot_4_L.png" style=" width: 250px" alt="screenshot image 3">
 </p>
+
+<p align="center">
+    <img src="store_images/screenshots/firefox_screenshot_2_D.png" style=" width: 250px" alt="screenshot image 1">
+    <img src="store_images/screenshots/firefox_screenshot_3_D.png" style=" width: 250px" alt="screenshot image 2">
+    <img src="store_images/screenshots/firefox_screenshot_4_D.png" style=" width: 250px" alt="screenshot image 3">
+</p>
+
+---
 
 ## Developer section
 
@@ -40,6 +56,8 @@ npm i
 Available npm scripts:
 - `lint:js` - run eslint on project.
 - `lint:css` - run stylelint on project.
+- `lint` - lint both js and css.
+- `sass` - start Sass watch task.
 
 ### Updating extension version
 

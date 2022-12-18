@@ -2,9 +2,42 @@
     <button class="mdc-button mdc-button--icon-leading" id="reset-settings">
         <span class="mdc-button__ripple"></span>
         <i class="material-icons mdc-button__icon" aria-hidden="true">restart_alt</i>
-        <span class="mdc-button__label">Reset to defaults</span>
+        <span class="mdc-button__label">{{i18n.btn_resetSettings}}</span>
     </button>
     <ul class="mdc-list mdc-list--two-line">
+        <li class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text setting-item">
+                <div>
+                    <span class="mdc-list-item__primary-text">
+                        <label for="basic-switch">{{i18n.settingTheme}}</label>
+                    </span>
+                </div>
+                <div class="mdc-segmented-buttons">
+                    <button class="mdc-button mdc-button--segmented theme-btn  {{#theme.isSystem}}selected{{/theme.isSystem}}" data-theme="system">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__touch"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">brightness_4</i>
+                        <span class="mdc-button__label">{{i18n.settingThemeSystem}}</span>
+                    </button>
+                    <button class="mdc-button mdc-button--segmented theme-btn {{#theme.isLight}}selected{{/theme.isLight}}" data-theme="light">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__touch"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">light_mode</i>
+                        <span class="mdc-button__label">{{i18n.settingThemeLight}}</span>
+                    </button>
+                    <button class="mdc-button mdc-button--segmented theme-btn {{#theme.isDark}}selected{{/theme.isDark}}" data-theme="dark">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__touch"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">dark_mode</i>
+                        <span class="mdc-button__label">{{i18n.settingThemeDark}}</span>
+                    </button>
+                </div>
+            </span>
+        </li>
+
+
+
         {{# onOffSettings }}
         <li class="mdc-list-item" tabindex="0">
             <span class="mdc-list-item__ripple"></span>
@@ -81,7 +114,7 @@
                                             <span class="mdc-chip__ripple mdc-chip__ripple--primary"></span>
                                             <span class="mdc-chip__text-label">{{.}}</span>
                                             <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing remove-ignored-url" data-val="{{.}}"
-                                                tabindex="0" role="button">cancel</i>
+                                                tabindex="0" role="button">close</i>
                                         </button>
                                     </span>
                                 </span>

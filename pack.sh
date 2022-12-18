@@ -60,6 +60,8 @@ fi
 mkdir build
 cp -r ./src/* build/
 rm -f build/manifest*.*
+rm build/css/*.scss
+rm build/css/*.map
 
 if [[ "$platform" == "opera" ]]; then
     cp ./platform/chromium/manifest.json build

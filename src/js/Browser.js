@@ -5,14 +5,7 @@ export default class Browser {
     }
 
     getBookmarksTree() {
-        // Will work in Chrome with manifest v3
-        // return this.browser.bookmarks.getTree();
-
-        return new Promise((resolve) => {
-            this.browser.bookmarks.getTree((results) => {
-                resolve(results);
-            });
-        });
+        return this.browser.bookmarks.getTree();
     }
 
     getExtensionVersion() {
