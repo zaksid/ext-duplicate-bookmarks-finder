@@ -26,6 +26,9 @@
     "btn_deleteSelected": {
         "message": "Видалити вибрані"
     },
+    "btn_resetSettings": {
+        "message": "Скинути до стандартних налаштуваннь"
+    },
     "bookmarksDeleteConfirmationTitle": {
         "message": "Видалити вибрані закладки?"
     },
@@ -56,8 +59,17 @@
     "msgFoundNone": {
         "message": "🥳 Дублікатів не знайдено!"
     },
-    "settingDarksTheme": {
-        "message": "Темна тема"
+    "settingTheme": {
+        "message": "Тема"
+    },
+    "settingThemeDark": {
+        "message": "Темна"
+    },
+    "settingThemeLight": {
+        "message": "Світла"
+    },
+    "settingThemeSystem": {
+        "message": "Як на пристрої"
     },
     "settingIgnoredPatterns": {
         "message": "Ігноровані URL адреси"

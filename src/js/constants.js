@@ -6,3 +6,9 @@ export const MainNavBtnIcons = {
 export const MainNavBtnClasses = {
     IS_MENU_CONTENT: 'is-menu-content',
 };
+
+export const Theme = {
+    DARK: 'dark',
+    LIGHT: 'light',
+    SYSTEM: 'system',
+};

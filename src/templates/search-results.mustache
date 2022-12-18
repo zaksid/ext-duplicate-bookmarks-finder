@@ -6,7 +6,7 @@
 
 {{^ isLoader }}
 <div>
-    <div class="alert alert-warning bookmark-card__title" role="alert">
+    <div class="alert alert-warning" role="alert">
         {{i18n.msg_FoundQty}}<br>
     </div>
 </div>
@@ -20,8 +20,10 @@
         </button>
     {{/hasResults}}
 
-    {{#cards}}
-        {{> card}}
-    {{/cards}}
+    <div class="bookmarks-list-wrapper">
+        {{#cards}}
+            {{> card}}
+        {{/cards}}
+    </div>
 </form>
 {{/ isLoader }}

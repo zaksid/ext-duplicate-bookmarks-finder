@@ -1,3 +1,8 @@
+## 1.0.0 (2023-06-30)
+
+* Added dark mode. Restyled with Material You ([ed1039a](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/ed1039a))
+
+
 ## 0.3.0 (2022-12-09)
 
 * 🛠 Fixes #24: Top App Bar is not fixed (#25) ([85f7dc1](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/85f7dc1)), closes [#24](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/24)
@@ -19,5 +24,5 @@
 ## <small>0.1.1 (2022-08-07)</small>
 * Refactor (move classes to modules). Added loader (#4) ([5e05056](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/5e05056)), closes [#4](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/4)
 
-## <small>0.1 (2022-08-01)</small>
+## 0.1 (2022-08-01)
 * 🎉 Initial commit ([0d2cbd1](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/0d2cbd1))
