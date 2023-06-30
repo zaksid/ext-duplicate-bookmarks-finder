@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "author": "Oleksandr Mahdybor",
     "homepage_url": "https://github.com/zaksid/ext-duplicate-bookmarks-finder",
     "permissions": [
@@ -10,19 +10,38 @@
         "storage"
     ],
     "action": {
+        "browser_style": true,
         "default_popup": "popup.html",
+        "default_title": "__MSG_extensionName__",
         "default_icon": {
-            "16": "/images/icon_16.png",
-            "32": "/images/icon_32.png",
-            "48": "/images/icon_48.png",
-            "128": "/images/icon_128.png"
-        }
+            "16": "/images/icon_green_dark_16.png",
+            "32": "/images/icon_green_dark_32.png",
+            "48": "/images/icon_green_dark_48.png",
+            "128": "/images/icon_green_dark_128.png"
+        },
+        "theme_icons": [{
+            "dark": "/images/icon_green_light_16.png",
+            "light": "/images/icon_green_dark_16.png",
+            "size": 16
+        }, {
+            "dark": "/images/icon_green_light_32.png",
+            "light": "/images/icon_green_dark_32.png",
+            "size": 32
+        }, {
+            "dark": "/images/icon_green_light_48.png",
+            "light": "/images/icon_green_dark_48.png",
+            "size": 48
+        }, {
+            "dark": "/images/icon_green_light_128.png",
+            "light": "/images/icon_green_dark_128.png",
+            "size": 128
+        }]
     },
     "icons": {
-        "16": "/images/icon_16.png",
-        "32": "/images/icon_32.png",
-        "48": "/images/icon_48.png",
-        "128": "/images/icon_128.png"
+        "16": "/images/icon_green_dark_16.png",
+        "32": "/images/icon_green_dark_32.png",
+        "48": "/images/icon_green_dark_48.png",
+        "128": "/images/icon_green_dark_128.png"
     },
     "default_locale": "en"
 }

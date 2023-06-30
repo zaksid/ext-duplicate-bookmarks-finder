@@ -5,8 +5,8 @@ import Browser from './Browser.js';
 import Bookmarks from './Bookmarks.js';
 import initSettingsPage from './pages/pageSettings.js';
 import initAboutPage from './pages/pageAbout.js';
-import { isSeparator } from './utils/index.js';
-import { MainNavBtnIcons, MainNavBtnClasses } from './constants.js';
+import { isSeparator, getExtensionSettings } from './utils/index.js';
+import { MainNavBtnIcons, MainNavBtnClasses, Theme } from './constants.js';
 
 const { MDCDialog } = mdc.dialog;
 const { MDCMenu } = mdc.menu;
@@ -60,6 +60,9 @@ async function init(isReInit) {
             });
         }
     }
+
+    const userSettings = await getExtensionSettings(browserInstance);
+    document.documentElement.className = userSettings.theme === Theme.SYSTEM ? '' : userSettings.theme;
 }
 
 // TODO
@@ -170,12 +173,9 @@ async function findBookmarksHandler(event) {
         });
     }
 
-    const formData = new FormData(this);
-    const ignoredUrls = formData.get('ignoredUrls');
-
     const bookmarksTree = await browserInstance.getBookmarksTree();
     const bookmarksInstance = new Bookmarks(bookmarksTree);
-    const bookmarks = await bookmarksInstance.getDuplicates(browserInstance, ignoredUrls);
+    const bookmarks = await bookmarksInstance.getDuplicates(browserInstance);
 
     state.duplicatesSearchResult = bookmarks;
 
@@ -245,7 +245,7 @@ async function renderSearchResults(array) {
             state.selectedDuplicates.push(checkbox.id);
         });
     };
-    document.addEventListener('change', (e) => {
+    searchResultsContainer.addEventListener('change', (e) => {
         // loop parent nodes from the target to the delegation node
         // eslint-disable-next-line prefer-destructuring
         for (let target = e.target; target && target !== this; target = target.parentNode) {
@@ -255,6 +255,14 @@ async function renderSearchResults(array) {
             }
         }
     }, false);
+
+    searchResultsContainer.querySelectorAll('.bookmark-url').forEach((elem) => {
+        elem.addEventListener('click', (event) => {
+            browserInstance.browser.tabs.update({
+                url: event.target.href,
+            });
+        });
+    });
 }
 
 function prepareCardTitleUrl(url = '') {

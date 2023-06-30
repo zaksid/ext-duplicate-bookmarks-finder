@@ -1,0 +1,534 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "generated_theme/tokens.css";
+@import "./loader.css";
+
+@mixin light-theme {
+  --md-sys-color-background: var(--md-sys-color-background-light);
+  --md-sys-color-surface-light: #F5F4E9;
+  --mdc-theme-primary: var(--md-sys-color-primary-light);
+  --mdc-theme-secondary: var(--md-sys-color-secondary-light);
+  --mdc-theme-background: var(--md-sys-color-background-light);
+  --mdc-theme-surface: var(--md-sys-color-surface-light);
+  --mdc-theme-error: var(--md-sys-color-error-light);
+  --mdc-theme-on-primary: var(--md-sys-color-on-primary-light);
+  --mdc-theme-on-secondary: var(--md-sys-color-on-secondary-light);
+  --mdc-theme-on-surface: var(--md-sys-color-on-surface-light);
+  --mdc-theme-on-surface-variant: var(--md-sys-color-on-surface-variant-light);
+  --mdc-theme-on-error: var(--md-sys-color-on-error-light);
+  --md-sys-color-outline: var(--md-sys-color-outline-light);
+  --md-sys-color-on-surface: var(--md-sys-color-on-surface-light);
+  --md-sys-color-on-primary-container: var(--md-sys-color-on-primary-container-light);
+  --md-sys-color-on-secondary-container: var(--md-sys-color-on-secondary-container-light);
+  --md-sys-color-secondary-container: var(--md-sys-color-secondary-container-light);
+
+  /* Override switch track */
+  --mdc-switch-selected-track-color: var(--md-sys-color-primary-container-light);
+  --mdc-switch-selected-hover-track-color: var(--md-sys-color-primary-container-light);
+  --mdc-switch-selected-focus-track-color: var(--md-sys-color-primary-container-light);
+  --mdc-switch-selected-pressed-track-color: var(--md-sys-color-primary-container-light);
+
+  /* Override switch handle button */
+  --mdc-switch-selected-handle-color: var(--mdc-theme-primary);
+  --mdc-switch-selected-hover-handle-color: var(--mdc-theme-primary);
+  --mdc-switch-selected-focus-handle-color: var(--mdc-theme-primary);
+  --mdc-switch-selected-pressed-handle-color: var(--mdc-theme-primary);
+
+  /* Alerts */
+  --bs-alert-color: var(--md-sys-color-on-tertiary-container-light);
+  --bs-alert-bg: var(--md-sys-color-tertiary-container-light);
+  --bs-alert-border-color: var(--md-sys-color-tertiary-container-light);
+
+
+  /* Override checkbox */
+  --mdc-checkbox-checked-color: var(--md-sys-color-on-primary-container-light);
+  --mdc-checkbox-unchecked-color: var(--md-sys-color-on-primary-container-light);
+  --mdc-checkbox-ink-color: var(--md-sys-color-surface-light);
+
+  /* Button override  */
+  --mdc-outlined-button-disabled-label-text-color: var(--md-sys-color-on-surface-light);
+  --mdc-outlined-button-disabled-outline-color: var(--md-sys-color-on-surface-light);
+  --mdc-outlined-button-outline-color: var(--md-sys-color-outline-light);
+
+  --md-sys-color-outline: var(--md-sys-color-outline-light);
+  --md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant-light);
+}
+
+@mixin dark-theme {
+  --md-sys-color-background: var(--md-sys-color-background-dark);
+  --md-sys-color-surface-dark: #23261C;
+  --mdc-theme-primary: var(--md-sys-color-primary-dark);
+  --mdc-theme-secondary: var(--md-sys-color-secondary-dark);
+
+  --mdc-theme-background: var(--md-sys-color-background-dark);
+  --mdc-theme-surface: var(--md-sys-color-surface-dark);
+  --mdc-theme-error: var(--md-sys-color-error-dark);
+  --mdc-theme-on-primary: var(--md-sys-color-on-primary-dark);
+  --mdc-theme-on-secondary: var(--md-sys-color-on-secondary-dark);
+  --mdc-theme-on-surface: var(--md-sys-color-on-surface-dark);
+  --mdc-theme-on-surface-variant: var(--md-sys-color-on-surface-variant-dark);
+  --mdc-theme-on-error: var(--md-sys-color-on-error-dark);
+  --mdc-theme-text-primary-on-background: var(--md-sys-color-on-surface-dark);
+  --mdc-theme-text-secondary-on-background: var(--md-sys-color-inverse-surface-dark);
+  --md-sys-color-outline: var(--md-sys-color-outline-dark);
+  --md-sys-color-on-surface: var(--md-sys-color-on-surface-dark);
+  --md-sys-color-on-primary-container: var(--md-sys-color-on-primary-container-dark);
+  --md-sys-color-on-secondary-container: var(--md-sys-color-on-secondary-container-dark);
+  --md-sys-color-secondary-container: var(--md-sys-color-secondary-container-dark);
+
+  /* Override switch track */
+  --mdc-switch-selected-track-color: var(--md-sys-color-primary-container-dark);
+  --mdc-switch-selected-hover-track-color: var(--md-sys-color-primary-container-dark);
+  --mdc-switch-selected-focus-track-color: var(--md-sys-color-primary-container-dark);
+  --mdc-switch-selected-pressed-track-color: var(--md-sys-color-primary-container-dark);
+
+  --mdc-switch-unselected-track-color: var(--md-sys-color-outline-dark);
+  --mdc-switch-unselected-hover-track-color: var(--md-sys-color-outline-dark);
+  --mdc-switch-unselected-focus-track-color: var(--md-sys-color-outline-dark);
+  --mdc-switch-unselected-pressed-track-color: var(--md-sys-color-outline-dark);
+
+  --mdc-switch-unselected-hover-handle-color: var(--md-sys-color-surface-variant-dark);
+  /* --mdc-switch-unselected-focus-handle-color: var(--md-sys-color-surface-variant-dark);
+  --mdc-switch-unselected-pressed-handle-color: var(--md-sys-color-surface-variant-dark); */
+
+
+  --mdc-switch-unselected-icon-color: var(--md-sys-color-on-primary-container-dark);
+  /* Override switch handle button */
+  --mdc-switch-selected-handle-color: var(--mdc-theme-primary);
+  --mdc-switch-selected-hover-handle-color: var(--mdc-theme-primary);
+  --mdc-switch-selected-focus-handle-color: var(--mdc-theme-primary);
+  --mdc-switch-selected-pressed-handle-color: var(--mdc-theme-primary);
+
+  /* Alerts */
+  --bs-alert-color: var(--md-sys-color-on-tertiary-container-dark);
+  --bs-alert-bg: var(--md-sys-color-tertiary-container-dark);
+  --bs-alert-border-color: var(--md-sys-color-tertiary-container-dark);
+
+  /* Override checkbox */
+  --mdc-checkbox-checked-color: var(--md-sys-color-on-primary-container-dark);
+  --mdc-checkbox-unchecked-color: var(--md-sys-color-on-primary-container-dark);
+  --mdc-checkbox-ink-color: var(--md-sys-color-surface-dark);
+
+  /* Button override  */
+  --mdc-outlined-button-disabled-label-text-color: var(--md-sys-color-on-surface-dark);
+  --mdc-outlined-button-disabled-outline-color: var(--md-sys-color-on-surface-dark);
+  --mdc-outlined-button-outline-color: var(--md-sys-color-outline-dark);
+
+  --md-sys-color-outline: var(--md-sys-color-outline-dark);
+  --md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant-dark);
+}
+
+// Theme: Light
+.light {
+  @include light-theme;
+}
+
+// Theme: Dark
+.dark {
+  @include dark-theme;
+}
+
+// Theme: OS Default
+:root:not(.light):not(.dark) {
+  @media (prefers-color-scheme: light) {
+    @include light-theme;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+  }
+}
+
+/* Icons font */
+@font-face {
+  font-family: icomoon;
+  src: url("../fonts/icomoon.eot?46olml");
+  src: url("../fonts/icomoon.eot?46olml#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?46olml") format("truetype"),
+    url("../fonts/icomoon.woff?46olml") format("woff"),
+    url("../fonts/icomoon.svg?46olml#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+* {
+  width: auto;
+}
+
+.icon-github,
+.app_icon-icon_bw {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: icomoon !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: xx-large;
+  text-transform: none;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app_icon-icon_bw::before {
+  content: "\e901";
+}
+
+.icon-github::before {
+  content: "\eab0";
+}
+
+/* Override Material styles */
+.mdc-top-app-bar {
+  color: var(--mdc-theme-on-primary);
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--md-sys-color-on-surface);
+}
+
+.mdc-card {
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.mdc-list-divider {
+  background-color: var(--md-sys-color-outline);
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--md-sys-color-on-surface-variant);
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: var(--md-sys-color-on-surface);
+}
+
+.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
+.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  color: var(--mdc-theme-primary);
+}
+
+.mdc-dialog .mdc-dialog__title {
+  color: var(--mdc-theme-on-surface);
+}
+
+.mdc-dialog .mdc-dialog__content {
+  color: var(--mdc-theme-on-surface-variant);
+}
+
+.mdc-dialog .mdc-dialog__close {
+  color: #000;
+  /* @alternate */
+  color: var(--mdc-theme-on-surface, #000);
+}
+
+/* Custom styles */
+body {
+  margin: 0;
+  min-width: 560px;
+  max-width: 700px;
+  background-color: var(--mdc-theme-background);
+}
+
+main {
+  margin: 0 8px;
+}
+
+.bookmarks-list-wrapper {
+  overflow: hidden;
+}
+
+.bookmark-card__title {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color:var(--mdc-theme-on-surface);
+}
+
+.bookmark-card__subhead {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  opacity: 0.6;
+  color:var(--mdc-theme-on-surface);
+}
+
+.bookmark-card-content {
+  padding: 8px 16px 0;
+  margin: 8px 0;
+  transition: opacity 0.3s;
+}
+
+.bookmark-card-content.removed {
+  opacity: 0;
+}
+
+.bookmark-url {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.duplicate-li {
+  padding: 8px 0;
+  transition: opacity 0.3s;
+  /* overflow-x: auto; */
+}
+
+.duplicate-li.removed {
+  opacity: 0;
+}
+
+.menu-li {
+  height: 32px;
+  width: auto;
+  align-items: center;
+}
+
+.mdc-list-item,
+.mdc-list-item__secondary-text {
+  cursor: default;
+}
+.mdc-list-item__primary-text label {
+  cursor: pointer;
+}
+
+#find-bookmarks {
+  margin: 8px 0;
+  padding-top: 5px;
+}
+
+#find-bookmarks > * {
+  margin: 4px;
+}
+
+#find-bookmarks .mdc-text-field__input {
+  width: 300px;
+}
+
+.alert {
+  --bs-alert-padding-x: 1rem;
+  --bs-alert-padding-y: 1rem;
+  --bs-alert-margin-bottom: 1rem;
+  --bs-alert-color: inherit;
+  --bs-alert-border-color: transparent;
+  --bs-alert-border: 1px solid var(--bs-alert-border-color);
+  --bs-alert-border-radius: 12px;
+
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+  margin-bottom: var(--bs-alert-margin-bottom);
+  color: var(--bs-alert-color);
+  background-color: var(--bs-alert-bg);
+  border: var(--bs-alert-border);
+  border-radius: var(--bs-alert-border-radius);
+  transition: opacity 0.3s;
+  font-size: 1rem;
+}
+
+.alert.removed {
+  opacity: 0;
+}
+
+.about-extension__main-container {
+  color: var(--mdc-theme-on-surface);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 16px;
+}
+
+.about-extension__additional-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+}
+
+.about-extension__source-img {
+  width: 32px;
+  height: auto;
+}
+
+.icon-link,
+.icon-link:visited {
+  color: var(--mdc-theme-on-surface);
+  text-decoration: none;
+}
+
+#app-bar-menu-btn {
+  transition: transform .3s;
+}
+
+/* #app-bar-menu-btn.menu-opened {
+  transform: rotate(90deg);
+} */
+
+#bookmarks-list {
+  margin: 8px;
+}
+
+.mdc-list-item__text {
+  width: 100%;
+}
+
+.setting-item {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mdc-list-item__secondary-text::before {
+  height: 0;
+}
+
+.mdc-chip {
+  --mdc-ripple-hover-opacity: 0;
+
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 8px;
+  background-color: var(--mdc-theme-surface);
+}
+
+.mdc-chip .mdc-chip__ripple {
+  border-radius: 8px;
+}
+
+.mdc-chip:hover {
+  color: var(--mdc-theme-surface);
+}
+
+.mdc-chip__action {
+  border: none;
+  background: none;
+  color: var(--mdc-theme-on-surface);
+  padding: 1px 0;
+}
+
+.mdc-chip__icon--trailing {
+  color: var(--mdc-theme-on-surface-variant);
+}
+
+.mdc-chip__icon--trailing:hover {
+  color: var(--mdc-theme-on-surface);
+}
+
+.mdc-chip__icon--trailing:focus {
+  color: var(--mdc-theme-on-surface-variant);
+}
+
+.mdc-button {
+  --mdc-shape-small: 20px;
+  --mdc-outlined-button-container-shape: 20px;
+  --mdc-text-button-container-shape: 20px;
+  --mdc-text-button-container-height: 40px;
+}
+
+.mdc-button--outlined:disabled {
+  opacity: 0.12;
+}
+
+.list-item-chips .setting-item {
+  flex-direction: column;
+  align-items: flex-start;
+  height: max-content;
+}
+
+.mdc-chip-set__chips {
+  display: flex;
+  width: 90vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mdc-menu {
+  max-height: fit-content !important;
+  top: 16px !important;
+  width: max-content;
+}
+
+#reset-settings {
+  margin: 1em;
+}
+
+.remove-ignored-url {
+  cursor: pointer;
+}
+
+.settings-text-field {
+  height: 45px;
+  width: 320px;
+}
+
+.settings-button-add {
+  height: 40px;
+}
+
+.settings-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 24px 0 5px;
+}
+
+// Settings Page - Segmented Buttons (for Theme)
+.mdc-segmented-buttons {
+  color: var(--mdc-theme-on-surface);
+  padding: 0;
+  display: flex;
+}
+
+.mdc-button--segmented {
+  border-radius: 0;
+  border: 1px solid var(--md-sys-color-outline);
+  border-left: none;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.mdc-button--segmented:first-child {
+  border-left: 1px solid var(--md-sys-color-outline);
+  border-radius: 24px 0 0 24px;
+}
+
+.mdc-button--segmented:last-child {
+  border-radius: 0 24px 24px 0;
+}
+
+.mdc-button--segmented.selected {
+  color: var(--md-sys-color-on-secondary-container);
+  background-color: var(--md-sys-color-secondary-container);
+}
+
+.mdc-button--segmented .mdc-button__ripple {
+  border-radius: 0;
+}
+
+.mdc-button--segmented:first-child  .mdc-button__ripple {
+  border-radius: 24px 0 0 24px;
+}
+
+.mdc-button--segmented:last-child  .mdc-button__ripple {
+  border-radius: 0 24px 24px 0;
+}
+// ---------------------------------------------
