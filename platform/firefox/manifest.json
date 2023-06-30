@@ -9,6 +9,11 @@
         "bookmarks",
         "storage"
     ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{8dc9d389-4f2c-4f53-909a-7041d9442fa9}"
+        }
+    },
     "action": {
         "browser_style": true,
         "default_popup": "popup.html",
