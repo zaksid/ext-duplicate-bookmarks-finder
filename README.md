@@ -1,6 +1,6 @@
 # Duplicate Bookmarks Finder
 
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+![version](https://img.shields.io/badge/version-1.0.1-blue)
 ![GitHub](https://img.shields.io/github/license/zaksid/ext-duplicate-bookmarks-finder)
 
 Find and delete duplicate bookmarks.

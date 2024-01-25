@@ -1,3 +1,9 @@
+## <small>1.0.1 (2024-01-25)</small>
+
+* Fixes #49: Remove "Buy Me A Coffee" script to Comply with Chrome Web Store Policy (#51) ([dc4cc3d](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/dc4cc3d)), closes [#49](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/49) [#51](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/51)
+* Fixes #50: Firefox doesn't close pop-up when navigating via external link (#52) ([5833b4e](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/5833b4e)), closes [#50](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/50) [#52](https://github.com/zaksid/ext-duplicate-bookmarks-finder/issues/52)
+
+
 ## 1.0.0 (2023-06-30)
 
 * Added dark mode. Restyled with Material You ([ed1039a](https://github.com/zaksid/ext-duplicate-bookmarks-finder/commit/ed1039a))
