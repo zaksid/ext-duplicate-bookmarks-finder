@@ -18,6 +18,7 @@ export default async function initAboutPage(browserInstance) {
     document.querySelector('#main-content').innerHTML = Mustache.render(aboutTemplate, {
         extensionName: browserInstance.i18n.getMessage('extensionName'),
         version: browserInstance.getExtensionVersion(),
+        buyMeACoffeeUrl: Config.buyMeACoffeeUrl,
         githubUrl: Config.githubUrl,
         i18n: {
             alt_extIcon: browserInstance.i18n.getMessage('alt_extIcon'),
