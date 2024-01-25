@@ -15,7 +15,6 @@
         }
     },
     "action": {
-        "browser_style": true,
         "default_popup": "popup.html",
         "default_title": "__MSG_extensionName__",
         "default_icon": {

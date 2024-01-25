@@ -25,4 +25,21 @@ export default async function initAboutPage(browserInstance) {
             txt_version: browserInstance.i18n.getMessage('txt_version'),
         },
     });
+
+    const isFirefox = navigator.userAgent.includes('Firefox');
+    if (isFirefox) {
+        // For some reason Firefox doesn't close pop-up when navigating via external links.
+        // When using just `window.close()` the pop-up is closed but the link is opened in a new window instead af a new tab.
+        // Need to manually open the link and then close the pop-up.
+        document.querySelectorAll('.external-link').forEach((elem) => {
+            elem.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const { currentTarget } = event;
+
+                window.open(currentTarget.href, currentTarget.target, 'noopener,noreferrer');
+                window.close();
+            });
+        });
+    }
 }
