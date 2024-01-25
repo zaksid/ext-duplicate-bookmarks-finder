@@ -1,0 +1,110 @@
+{
+    "extensionName": {
+        "message": "පොත්යොමු අනුපිටපත් සොයන්නා",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "පොත්යොමු අනුපිටපත් සොයාගෙන මකන්න.",
+        "description": "Description of the extension."
+    },
+    "extensionDescriptionLong": {
+        "message": "මෙම දිගුව පොත්යොමු අනුපිටපත් සොයා ගැනීමට සහ මකා දැමීමට ඉඩ සලසයි.",
+        "description": "Long description of the extension."
+    },
+    "btn_add": {
+        "message": "එකතු"
+    },
+    "btn_findDuplicates": {
+        "message": "සොයන්න"
+    },
+    "btn_cancel": {
+        "message": "අවලංගු"
+    },
+    "btn_delete": {
+        "message": "මකන්න"
+    },
+    "btn_deleteSelected": {
+        "message": "තේරූ දෑ මකන්න"
+    },
+    "btn_resetSettings": {
+        "message": "පෙරනිමියට සකසන්න"
+    },
+    "bookmarksDeleteConfirmationTitle": {
+        "message": "තෝරාගත් පොත්යොමු මකන්න ද?"
+    },
+    "bookmarksDeleteConfirmation": {
+        "message": "මෙම ක්‍රියාමාර්ගය අප්‍රතිවර්ත්‍යයි!"
+    },
+    "bookmarksDeletedMsg": {
+        "message": "තේරූ පොත්යොමු මකාදමා ඇත."
+    },
+    "input_hint_ignoredUrlRegex": {
+        "message": "නොසලකන ඒ.ස.නි. වාක්‍යවිධි"
+    },
+    "menu_about": {
+        "message": "පිළිබඳව"
+    },
+    "menu_settings": {
+        "message": "සැකසුම්"
+    },
+    "msgFoundQty": {
+        "message": "අනුපිටපත් $QTY$ ක් හමුවිය",
+        "placeholders": {
+            "qty": {
+                "content": "$1",
+                "example": "0"
+            }
+        }
+    },
+    "msgFoundNone": {
+        "message": "🥳 අනුපිටපත් හමු නොවිණි!"
+    },
+    "settingTheme": {
+        "message": "තේමාව"
+    },
+    "settingThemeDark": {
+        "message": "අඳුරු"
+    },
+    "settingThemeLight": {
+        "message": "දීප්ත"
+    },
+    "settingThemeSystem": {
+        "message": "පද්ධතිය"
+    },
+    "settingIgnoredPatterns": {
+        "message": "නොසලකන ඒ.ස.නි. රටා"
+    },
+    "settingIgnoredPatternsDescription": {
+        "message": "නොසලකා හැරිය යුතු ඒ.ස.නි. රටා (RegExp)"
+    },
+    "settingShowSeparators": {
+        "message": "කඩන පෙන්වන්න"
+    },
+    "settingShowSeparatorsDescription": {
+        "message": "සෙවුම් ප්‍රතිඵලවල පොත්යොමු කඩන පෙන්වන්න"
+    },
+    "txt_cardMatchNo": {
+        "message": "ගැළපීම් $NO$",
+        "placeholders": {
+            "no": {
+                "content": "$1",
+                "example": "1"
+            }
+        }
+    },
+    "alt_extIcon": {
+        "message": "දිගුවේ නිරූපකය"
+    },
+    "txt_path": {
+        "message": "පෙත:"
+    },
+    "txt_separator": {
+        "message": "කඩනය"
+    },
+    "txt_separators": {
+        "message": "කඩන"
+    },
+    "txt_version": {
+        "message": "අනුවාදය: "
+    }
+}
