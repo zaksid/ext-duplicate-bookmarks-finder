@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 @import "generated_theme/tokens.css";
 @import "./loader.css";
+@import "./material-icons.css";
 .light {
   --md-sys-color-background: var(--md-sys-color-background-light);
   --md-sys-color-surface-light: #F5F4E9;
